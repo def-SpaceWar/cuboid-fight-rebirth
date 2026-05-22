@@ -1,11 +1,8 @@
 <script lang="ts">
-    import { FixedP } from "./lib/fixed_point";
+    import { FxPt } from "./lib/fixed_point";
 
-    const a = FixedP.fromFloat(2);
-    const b = FixedP.fromFloat(1);
-    const c = FixedP.atan2(a, b);
-    console.log(c.toFloat());
-    console.log(FixedP.tan(c)!.toFloat());
+    const a: FxPt = FxPt.atan2(FxPt.fromInt(1), FxPt.fromInt(1));
+    console.log(FxPt.toFloat(a), FxPt.toFloat(FxPt.sin(a)), FxPt.toFloat(FxPt.cos(a)));
 </script>
 
 <h1>yep</h1>
