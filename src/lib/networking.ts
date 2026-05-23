@@ -6,3 +6,5 @@ const config: JoinRoomConfig = {
 
 const room = joinRoom(config, "def_SpaceWar's Lobby");
 console.log(selfId);
+
+// some sort of Lobby.svelte component to handle initial lobby stuff
