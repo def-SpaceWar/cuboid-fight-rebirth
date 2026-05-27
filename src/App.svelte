@@ -1,21 +1,22 @@
 <script lang="ts">
     import { FxPt } from "./lib/math/fixed_point";
 
-    const a: FxPt = FxPt.atan2(FxPt.fromInt(1), FxPt.fromInt(1));
+    const a: FxPt = FxPt.atan2(FxPt.fromInt(-5), FxPt.fromInt(-5));
     console.log(
-        FxPt.toFloat(a),
-        FxPt.toFloat(FxPt.sin(a)),
-        FxPt.toFloat(FxPt.cos(a)),
+        FxPt.toNum(a),
+        FxPt.toNum(FxPt.sin(a)),
+        FxPt.toNum(FxPt.cos(a)),
+        FxPt.toNum(FxPt.tan(a)),
     );
 
     const b = FxPt.exp(FxPt.fromInt(1));
-    console.log(FxPt.toFloat(b), FxPt.toFloat(FxPt.ln(b)));
+    console.log(FxPt.toNum(b), FxPt.toNum(FxPt.ln(b)));
 
     const c = FxPt.sqrt(FxPt.fromInt(25));
     console.log(
-        FxPt.toFloat(c),
-        FxPt.toFloat(FxPt.ipow(c, 2)),
-        FxPt.toFloat(FxPt.pow(c, FxPt.fromInt(2))),
+        FxPt.toNum(c),
+        FxPt.toNum(FxPt.ipow(c, 2)),
+        FxPt.toNum(FxPt.pow(c, FxPt.fromInt(2))),
     );
 </script>
 

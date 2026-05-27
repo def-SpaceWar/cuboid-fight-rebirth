@@ -19,7 +19,7 @@ export namespace FxPt {
         return BigInt(v) << SHIFT;
     }
     export const fromFloat = (v: number): FxPt => BigInt(Math.floor(v * Number(ONE)));
-    export const toFloat = (v: FxPt): number => Number(v) / Number(ONE);
+    export const toNum = (v: FxPt): number => Number(v) / Number(ONE);
 
     export function mul(a: FxPt, b: FxPt): FxPt {
         const p = a * b;

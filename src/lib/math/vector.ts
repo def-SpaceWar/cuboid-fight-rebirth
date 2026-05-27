@@ -2,26 +2,33 @@ import { FxPt } from "./fixed_point";
 
 export type Vec2 = BigInt64Array & { length: 2; };
 export namespace Vec2 {
-    export function create(x: FxPt = 0n, y: FxPt = 0n): Vec2 {
+    export function toNum(v: Vec2): [number, number] {
+        return [FxPt.toNum(v[0]), FxPt.toNum(v[1])];
+    }
+
+    export function xy(x: FxPt = 0n, y: FxPt = 0n): Vec2 {
         const out = new BigInt64Array(2);
         out[0] = x;
         out[1] = y;
         return out as Vec2;
     }
 
-    export function add(a: Vec2, b: Vec2, out = Vec2.create()): Vec2 {
+    export const x = (x: FxPt = FxPt.ONE): Vec2 => xy(x, 0n);
+    export const y = (y: FxPt = FxPt.ONE): Vec2 => xy(0n, y);
+
+    export function add(a: Vec2, b: Vec2, out = Vec2.xy()): Vec2 {
         out[0] = a[0] + b[0];
         out[1] = a[1] + b[1];
         return out;
     }
 
-    export function sub(a: Vec2, b: Vec2, out = Vec2.create()): Vec2 {
+    export function sub(a: Vec2, b: Vec2, out = Vec2.xy()): Vec2 {
         out[0] = a[0] - b[0];
         out[1] = a[1] - b[1];
         return out;
     }
 
-    export function scale(a: Vec2, scalar: FxPt, out = Vec2.create()): Vec2 {
+    export function scale(a: Vec2, scalar: FxPt, out = Vec2.xy()): Vec2 {
         out[0] = FxPt.mul(a[0], scalar);
         out[1] = FxPt.mul(a[1], scalar);
         return out;
@@ -47,7 +54,7 @@ export namespace Vec2 {
         return out;
     }
 
-    export function rotate(a: Vec2, rad: FxPt, out = Vec2.create()): Vec2 {
+    export function rotate(a: Vec2, rad: FxPt, out = Vec2.xy()): Vec2 {
         const s = FxPt.sin(rad);
         const c = FxPt.cos(rad);
         const x = a[0];
